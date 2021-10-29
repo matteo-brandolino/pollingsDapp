@@ -1,0 +1,158 @@
+.current-container {
+  height: 75vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-container {
+  background: var(--white);
+  padding: 1em 4em 12em 4em;
+  height: 320px;
+  border-radius: 20px;
+  border-left: 1px solid var(--white);
+  border-top: 1px solid var(--white);
+  backdrop-filter: blur(10px);
+  box-shadow: 20px 20px 40px -6px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  position: relative;
+  transition: all 0.2s ease-in-out;
+  font-family: "Source Code Pro", monospace;
+  p {
+    padding-bottom: 1em;
+  }
+  .input-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .react-numeric-input {
+      margin-bottom: 0.75em;
+      b {
+        right: 13px !important;
+        &:nth-of-type(1) {
+          border-radius: 50px 50px 0 0 !important;
+        }
+        &:nth-of-type(2) {
+          border-radius: 0 0 50px 50px !important;
+        }
+      }
+    }
+  }
+
+  .custom-input {
+    background: transparent;
+    padding: 1em;
+    margin-bottom: 2em;
+    width: 18em;
+    border: none;
+    border-left: 1px solid var(--white);
+    border-top: 1px solid var(--white);
+    border-radius: 5000px;
+    backdrop-filter: blur(5px);
+    box-shadow: 4px 4px 60px rgba(0, 0, 0, 0.2);
+    color: #000;
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    font-family: "Source Code Pro", monospace;
+    &:hover {
+      background: rgba(255, 255, 255, 0.1);
+      box-shadow: 4px 4px 60px 8px rgba(0, 0, 0, 0.2);
+    }
+    a,
+    &:focus {
+      outline: none;
+      width: 20em;
+    }
+    &.custom-button {
+      width: 6em;
+    }
+    &.custom-button:focus,
+    &.custom-button:hover {
+      cursor: pointer;
+      width: 8em;
+    }
+  }
+  .custom-textarea {
+    background: transparent;
+    padding: 1em;
+    margin-bottom: 2em;
+    width: 30em;
+    border: none;
+    border-left: 1px solid var(--white);
+    border-top: 1px solid var(--white);
+    border-radius: 25px;
+    backdrop-filter: blur(5px);
+    box-shadow: 4px 4px 60px rgba(0, 0, 0, 0.2);
+    color: #000;
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    font-family: "Source Code Pro", monospace;
+    resize: none;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.1);
+      box-shadow: 4px 4px 60px 8px rgba(0, 0, 0, 0.2);
+    }
+    a,
+    &:focus {
+      outline: none;
+      width: 32em;
+    }
+  }
+
+  .numeric-input {
+    background: transparent;
+    padding: 1em;
+    width: 8em;
+    border: none;
+    border-radius: 50px !important;
+    backdrop-filter: blur(5px);
+    box-shadow: 4px 4px 60px rgba(0, 0, 0, 0.2);
+    color: #000;
+    font-weight: 500;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    padding-left: 20px !important;
+    font-family: "Source Code Pro", monospace;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.1);
+      box-shadow: 4px 4px 60px 8px rgba(0, 0, 0, 0.2);
+    }
+    a,
+    &:focus {
+      outline: none;
+      width: 9em;
+    }
+  }
+}
+
+.table-container {
+  background: transparent;
+  width: 90% !important;
+  height: 90% !important;
+  flex: none !important;
+  border: none;
+  color: black !important;
+  font-weight: 500 !important;
+  border-left: 1px solid var(--white) !important;
+  border-top: 1px solid var(--white) !important;
+  backdrop-filter: blur(5px);
+  box-shadow: 4px 4px 60px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease-in-out;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  font-family: "Source Code Pro", monospace !important;
+  .MuiDataGrid-row:nth-of-type(odd) {
+    background: darkgrey;
+  }
+  .MuiDataGrid-row:nth-of-type(even) {
+    background: antiquewhite;
+  }
+}
+
+.c-mb-1 {
+  margin-bottom: 0.35em;
+}

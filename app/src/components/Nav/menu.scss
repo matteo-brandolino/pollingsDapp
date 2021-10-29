@@ -1,0 +1,125 @@
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css");
+
+// Variables
+$icon_size: 1.15rem; // 32px @ 16px default rem size
+$icon_color: black;
+$icon_color_hover: #fff;
+$icon_color_checked: #abdc38;
+
+$max_expansion: 7rem; // 16*16 = 256px => max width of expansion, directly relates to the transition timing length
+$menu_text_size: 1.1rem; // size of the menu text
+$menu_text_color: #000;
+
+$menu_item_padding: 1.5rem;
+$menu_item_bg: none;
+$menu_item_bg_hover: #000;
+$menu_item_bg_checked: #222;
+
+$menu_border_radius: $icon_size;
+.nav-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.menu {
+  background: var(--white);
+  padding: 0.75em 1.15em;
+  border-left: 1px solid var(--white);
+  border-top: 1px solid var(--white);
+  backdrop-filter: blur(10px);
+  box-shadow: 20px 20px 40px -6px rgba(0, 0, 0, 0.2);
+  display: table;
+  border-radius: 50px;
+}
+.menu_item {
+  display: block;
+  float: left;
+  white-space: nowrap;
+  color: $icon_color;
+  font-size: $menu_text_size;
+  &:last-child {
+    margin-right: 0;
+  }
+  .toggle {
+    display: none;
+    &:checked ~ {
+      & .expander {
+        max-width: $max_expansion;
+        background: var(--white2);
+        .menu_icon {
+          color: $icon_color_checked;
+          animation: none;
+        }
+        .menu_text {
+          color: $menu_text_color;
+        }
+      }
+    }
+  }
+  .expander {
+    max-width: $icon_size;
+    overflow: hidden;
+    transition: all ease-in-out 233ms;
+    padding: $menu_item_padding;
+    padding-right: $menu_item_padding;
+    &.expander-rounded-right {
+      border-radius: 0 50px 50px 0;
+    }
+    &.expander-rounded-left {
+      border-radius: 50px 0 0 50px;
+    }
+    &:hover {
+      background: var(--white2);
+      cursor: pointer;
+      .menu_icon {
+        color: $icon_color_hover;
+        animation: jiggle ease-in-out 400ms infinite;
+      }
+    }
+  }
+  label {
+    line-height: $icon_size;
+  }
+  .menu_icon {
+    display: inline-block;
+    font-size: $icon_size;
+    line-height: $icon_size;
+    vertical-align: middle;
+    width: $icon_size;
+    text-align: center;
+    margin-right: 0.5rem;
+    transition: color ease-in-out 80ms;
+    cursor: pointer;
+  }
+  .menu_text {
+    line-height: $icon_size;
+    color: transparent;
+    display: inline-block;
+    vertical-align: middle;
+    padding-right: $menu_item_padding;
+    transition: color ease-out 333ms;
+  }
+}
+.menu_title {
+  color: $menu_text_color;
+  font-size: $menu_text_size;
+  display: block;
+  float: left;
+  line-height: $icon_size;
+  padding: $menu_item_padding;
+}
+@keyframes jiggle {
+  0% {
+    transform: none;
+  }
+  25% {
+    transform: rotateZ(5deg);
+  }
+
+  75% {
+    transform: rotateZ(-5deg);
+  }
+  100% {
+    transform: none;
+  }
+}

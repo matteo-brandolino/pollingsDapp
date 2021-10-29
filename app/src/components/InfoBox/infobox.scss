@@ -1,0 +1,43 @@
+.info-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  /*  CHIP  */
+  .chip {
+    width: 30em;
+    margin: 1.2em 0.5em 0 0;
+    background: var(--white);
+    padding: 0 2em;
+    border-radius: 45px;
+    border-left: 1px solid var(--white);
+    border-top: 1px solid var(--white);
+    backdrop-filter: blur(10px);
+    box-shadow: 20px 20px 40px -6px rgba(0, 0, 0, 0.2);
+    .info-container {
+      margin-left: 0.8em;
+      strong {
+        p {
+          margin: 0.8em 0;
+        }
+      }
+      .balance-container {
+        display: flex;
+        justify-content: flex-end;
+        p {
+          margin: 0.75em 0;
+        }
+      }
+    }
+    .img-circle {
+      height: 65px;
+      width: 65px;
+      border-radius: 100px;
+      cursor: pointer;
+    }
+    .figure-img {
+      margin: 0;
+      display: flex;
+      align-items: center;
+    }
+  }
+}
