@@ -41,6 +41,4 @@ npm start
 
 - dialog to vote
 
--
-
 - Loader after creating poll
