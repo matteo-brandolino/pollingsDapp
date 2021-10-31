@@ -154,5 +154,19 @@
 }
 
 .c-mb-1 {
-  margin-bottom: 0.35em;
+  margin: 1em 0.85em;
+}
+
+.MuiDataGrid-window {
+  &::-webkit-scrollbar {
+    height: 0.75em !important;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: var(--black1);
+    border-radius: 20px;
+  }
+  &::-webkit-scrollbar-track {
+    background: #ddd;
+    border-radius: 20px;
+  }
 }

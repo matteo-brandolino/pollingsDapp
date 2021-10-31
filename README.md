@@ -37,8 +37,6 @@ npm start
 
 ## To Do
 
-- Connect button when not connected => Chip Component?
-
 - dialog to vote
 
 - Loader after creating poll

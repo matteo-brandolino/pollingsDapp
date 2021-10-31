@@ -22,9 +22,15 @@
       }
       .balance-container {
         display: flex;
-        justify-content: flex-end;
+        justify-content: space-between;
+        align-items: center;
         p {
           margin: 0.75em 0;
+        }
+        svg {
+          &:hover {
+            cursor: pointer;
+          }
         }
       }
     }

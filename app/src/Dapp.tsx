@@ -1,19 +1,17 @@
 import { useState } from "react";
-import InfoBox from "./components/InfoBox";
-import Layout from "./components/Layout";
-import Nav from "./components/Nav";
-import Current from "./components/Current";
 import { MenuContext, Menu } from "./context/MenuContext";
+import { useEthers } from "@usedapp/core";
+import Layout from "./components/Layout";
+import ConnectedApp from "./components/ConnectedApp";
+import NotConnectedApp from "./components/NotConnectedApp";
 
 function Dapp() {
   const [menu, setMenu] = useState(Menu.Default);
+  const { activateBrowserWallet, active } = useEthers();
+
   return (
     <MenuContext.Provider value={{ menu, setMenu }}>
-      <Layout>
-        <InfoBox />
-        <Current />
-        <Nav />
-      </Layout>
+      <Layout>{active ? <ConnectedApp /> : <NotConnectedApp />}</Layout>
     </MenuContext.Provider>
   );
 }
