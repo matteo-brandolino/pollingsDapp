@@ -1,8 +1,8 @@
-import { Menu, useMenuContext } from "../../context/MenuContext";
+import { Menu, useGlobalContext } from "../../context/GlobalContext";
 import "./menu.scss";
 
 export default function Nav() {
-  const { menu, setMenu } = useMenuContext();
+  const { menu, setMenu } = useGlobalContext();
 
   return (
     <div className="nav-container">

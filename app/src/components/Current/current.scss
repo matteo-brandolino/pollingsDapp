@@ -170,3 +170,8 @@
     border-radius: 20px;
   }
 }
+
+.MuiDataGrid-root .MuiDataGrid-columnHeader:focus,
+.MuiDataGrid-root .MuiDataGrid-cell:focus {
+  outline: none !important;
+}

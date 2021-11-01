@@ -6,7 +6,7 @@ import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 
 contract Polling is Ownable {
     uint256 public pollsCounter = 0;
-    uint256 private divider = 100000;
+    uint256 private divider = 1000;
 
     modifier costs(uint256 cost) {
         require(msg.value >= cost, "Not enough funds");

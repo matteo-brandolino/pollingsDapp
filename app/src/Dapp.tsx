@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { MenuContext, Menu } from "./context/MenuContext";
+import { GlobalContext, Menu } from "./context/GlobalContext";
 import { useEthers } from "@usedapp/core";
 import Layout from "./components/Layout";
 import ConnectedApp from "./components/ConnectedApp";
@@ -7,12 +7,18 @@ import NotConnectedApp from "./components/NotConnectedApp";
 
 function Dapp() {
   const [menu, setMenu] = useState(Menu.Default);
-  const { activateBrowserWallet, active } = useEthers();
+  const [openDialog, setOpenDialog] = useState({
+    open: false,
+    data: {},
+  });
+  const { active } = useEthers();
 
   return (
-    <MenuContext.Provider value={{ menu, setMenu }}>
+    <GlobalContext.Provider
+      value={{ menu, setMenu, openDialog, setOpenDialog }}
+    >
       <Layout>{active ? <ConnectedApp /> : <NotConnectedApp />}</Layout>
-    </MenuContext.Provider>
+    </GlobalContext.Provider>
   );
 }
 

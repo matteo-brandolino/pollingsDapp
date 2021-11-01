@@ -2,13 +2,13 @@ import { useState } from "react";
 import NumericInput from "react-numeric-input";
 import { utils } from "ethers";
 import { useContractMethod } from "../../customHooks";
-import { useMenuContext, Menu } from "../../context/MenuContext";
+import { useGlobalContext, Menu } from "../../context/GlobalContext";
 
 export default function PollForm() {
   const [title, setTitle] = useState<string>("");
   const [body, setBody] = useState<string>("");
   const [ethAmount, setEthAmount] = useState<string | undefined>("1");
-  const { menu } = useMenuContext();
+  const { menu } = useGlobalContext();
   const { send: addNew } = useContractMethod("createPoll");
 
   const format = (num: number | null): string => {

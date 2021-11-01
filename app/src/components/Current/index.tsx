@@ -1,6 +1,5 @@
 import PollForm from "./PollForm";
 import Table from "./Table";
-
 import "./current.scss";
 
 export default function Current() {

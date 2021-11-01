@@ -1,8 +1,19 @@
-import { DataGrid, GridColDef, GridRowData } from "@mui/x-data-grid";
-import { ContractCall, useContractCalls } from "@usedapp/core";
+import {
+  DataGrid,
+  GridColDef,
+  GridRenderCellParams,
+  GridRowData,
+} from "@mui/x-data-grid";
+import {
+  ContractCall,
+  shortenIfAddress,
+  useContractCalls,
+} from "@usedapp/core";
 import { useEffect, useState } from "react";
-import { useMenuContext, Menu } from "../../context/MenuContext";
+import { ParamsType } from "../../@types/types";
+import { useGlobalContext, Menu } from "../../context/GlobalContext";
 import { contractAddress, contractInterface } from "../../customHooks";
+import VoteDialog from "../VoteDialog";
 
 export default function Table() {
   const [contractCallsArray, setContractCallsArray] = useState<ContractCall[]>(
@@ -22,17 +33,21 @@ export default function Table() {
     },
   ];
 
-  //https://stackoverflow.com/questions/64331095/how-to-add-a-button-to-every-row-in-material-ui-datagrid/64331367#64331367
   const columns: GridColDef[] = [
     { field: "id", headerName: "ID", width: 100 },
     { field: "title", headerName: "Title", width: 160 },
-    { field: "body", headerName: "Body", width: 160 },
+    { field: "body", headerName: "Body", width: 250 },
     { field: "numYes", headerName: "Num Yes", width: 200 },
     { field: "numNo", headerName: "Num No", width: 200 },
     { field: "numVoters", headerName: "Num Voters", width: 230 },
     { field: "payBack", headerName: "Payback", width: 200 },
     { field: "balance", headerName: "Balance", width: 200 },
-    { field: "creator", headerName: "creator", width: 250 },
+    {
+      field: "creator",
+      headerName: "creator",
+      width: 150,
+      renderCell: (params: any) => <>{shortenIfAddress(params.value)}</>,
+    },
   ];
 
   const getRows = (): GridRowData[] => {
@@ -61,7 +76,7 @@ export default function Table() {
       : fakeRow;
   };
 
-  const { menu } = useMenuContext();
+  const { menu, setOpenDialog } = useGlobalContext();
 
   const [pollsCounter] = useContractCalls([
     {
@@ -72,6 +87,13 @@ export default function Table() {
     },
   ]);
   const allPolls = useContractCalls(contractCallsArray);
+
+  const openVoteDialog = (params: ParamsType) => {
+    setOpenDialog({
+      open: true,
+      data: params,
+    });
+  };
 
   useEffect(() => {
     if (pollsCounter?.toString()) {
@@ -98,9 +120,6 @@ export default function Table() {
 
   return (
     <>
-      {allPolls.forEach((el: any) => {
-        el && el.title.toString() !== "" && console.log(el);
-      })}
       {menu === Menu.Default && (
         <DataGrid
           className="table-container"
@@ -108,9 +127,13 @@ export default function Table() {
           columns={columns}
           pageSize={10}
           rowsPerPageOptions={[10]}
+          onRowDoubleClick={(params) =>
+            openVoteDialog(params.row as ParamsType)
+          }
           components={{ Footer: Footer }}
         />
       )}
+      <VoteDialog />
     </>
   );
 }

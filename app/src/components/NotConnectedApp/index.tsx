@@ -3,7 +3,7 @@ import metamaskImg from "../../assets/metamask.png";
 
 import "./notConnectedApp.scss";
 export default function NotConnectedApp() {
-  const { activateBrowserWallet, deactivate } = useEthers();
+  const { activateBrowserWallet } = useEthers();
 
   return (
     <div>
