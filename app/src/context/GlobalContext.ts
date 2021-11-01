@@ -12,13 +12,17 @@ export type GlobalContextType = {
   setOpenDialog: React.Dispatch<
     React.SetStateAction<{ open: boolean; data: {} }>
   >;
+  isLoading: boolean;
+  setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 export const GlobalContext = createContext<GlobalContextType>({
   menu: Menu.Default,
   setMenu: (menu) => console.warn("no navigation available"),
   openDialog: { open: false, data: {} },
-  setOpenDialog: () => console.warn("set Open dialog not working "),
+  setOpenDialog: () => console.warn("Set Open dialog not working "),
+  isLoading: false,
+  setIsLoading: () => console.warn("Set Is Loading not working "),
 });
 
 export const useGlobalContext = () => useContext(GlobalContext);

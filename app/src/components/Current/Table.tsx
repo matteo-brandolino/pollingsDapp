@@ -1,9 +1,4 @@
-import {
-  DataGrid,
-  GridColDef,
-  GridRenderCellParams,
-  GridRowData,
-} from "@mui/x-data-grid";
+import { DataGrid, GridColDef, GridRowData } from "@mui/x-data-grid";
 import {
   ContractCall,
   shortenIfAddress,
@@ -46,7 +41,13 @@ export default function Table() {
       field: "creator",
       headerName: "creator",
       width: 150,
-      renderCell: (params: any) => <>{shortenIfAddress(params.value)}</>,
+      renderCell: (params: any) => (
+        <>
+          {params.value && params.value !== "0x00"
+            ? shortenIfAddress(params.value)
+            : "0x00"}
+        </>
+      ),
     },
   ];
 

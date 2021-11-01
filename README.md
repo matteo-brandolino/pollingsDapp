@@ -37,6 +37,4 @@ npm start
 
 ## To Do
 
-- dialog to vote
-
-- Loader after creating poll
+- responsive/ UI changes

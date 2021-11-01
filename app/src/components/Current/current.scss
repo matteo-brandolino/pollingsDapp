@@ -175,3 +175,14 @@
 .MuiDataGrid-root .MuiDataGrid-cell:focus {
   outline: none !important;
 }
+
+.loader-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 35vh;
+  p {
+    margin-bottom: 3em;
+  }
+}
