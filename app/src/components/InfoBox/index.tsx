@@ -1,6 +1,7 @@
 import { useEtherBalance, useEthers } from "@usedapp/core";
 import { formatEther } from "@ethersproject/units";
 import ExitToAppRoundedIcon from "@mui/icons-material/ExitToAppRounded";
+import Identicon from "react-blockies";
 import "./infobox.scss";
 
 export default function InfoBox() {
@@ -17,11 +18,7 @@ export default function InfoBox() {
       {account && etherBalance && (
         <div className="chip">
           <div className="figure-img">
-            <img
-              className="img-circle"
-              src="https://fir-rollup.firebaseapp.com/de-sm.jpg"
-              alt="David East - Author"
-            />
+            <Identicon className="img-circle" seed={account} size={14} />
             <div className="info-container">
               {account && (
                 <strong>

@@ -17,7 +17,7 @@
       margin-left: 0.8em;
       strong {
         p {
-          margin: 0.8em 0;
+          margin: 0.8em 0 0.1em;
         }
       }
       .balance-container {
@@ -35,8 +35,6 @@
       }
     }
     .img-circle {
-      height: 65px;
-      width: 65px;
       border-radius: 100px;
       cursor: pointer;
     }
