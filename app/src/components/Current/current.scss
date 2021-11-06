@@ -7,8 +7,7 @@
 
 .form-container {
   background: var(--white);
-  padding: 1em 4em 12em 4em;
-  height: 320px;
+  padding: 1em 3em 0 3em;
   border-radius: 20px;
   border-left: 1px solid var(--white);
   border-top: 1px solid var(--white);
@@ -79,7 +78,7 @@
     background: transparent;
     padding: 1em;
     margin-bottom: 2em;
-    width: 30em;
+    width: 35em;
     border: none;
     border-left: 1px solid var(--white);
     border-top: 1px solid var(--white);
@@ -100,7 +99,7 @@
     a,
     &:focus {
       outline: none;
-      width: 32em;
+      width: 38em;
     }
   }
 

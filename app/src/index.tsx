@@ -11,13 +11,15 @@ import {
 } from "@usedapp/core";
 
 const config: Config = {
+  readOnlyChainId: ChainId.Ropsten,
   readOnlyUrls: {
+    [ChainId.Ropsten]: `https://ropsten.infura.io/v3/${process.env.REACT_APP_ROPSTEN}`,
     [ChainId.Hardhat]: "http://localhost:8545",
   },
   multicallAddresses: {
     ...MULTICALL_ADDRESSES,
   },
-  supportedChains: [ChainId.Hardhat],
+  supportedChains: [ChainId.Hardhat, ChainId.Ropsten],
 };
 ReactDOM.render(
   <DAppProvider config={config}>

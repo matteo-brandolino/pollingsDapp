@@ -53,7 +53,7 @@ export default function PollForm() {
                   value={body}
                   className="custom-textarea"
                   placeholder="Body..."
-                  rows={10}
+                  rows={15}
                   onChange={(
                     e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
                   ) => setBody(e.target.value)}
