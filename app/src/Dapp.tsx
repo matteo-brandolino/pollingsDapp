@@ -13,7 +13,8 @@ function Dapp() {
     data: {},
   });
   const [isLoading, setIsLoading] = useState(false);
-  const { active } = useEthers();
+  const { active, account } = useEthers();
+
   const { notifications } = useNotifications();
 
   useEffect(() => {
@@ -37,7 +38,9 @@ function Dapp() {
         setIsLoading,
       }}
     >
-      <Layout>{active ? <ConnectedApp /> : <NotConnectedApp />}</Layout>
+      <Layout>
+        {active && account ? <ConnectedApp /> : <NotConnectedApp />}
+      </Layout>
     </GlobalContext.Provider>
   );
 }
