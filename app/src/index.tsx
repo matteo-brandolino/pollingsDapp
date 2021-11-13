@@ -9,11 +9,12 @@ import {
   ChainId,
   MULTICALL_ADDRESSES,
 } from "@usedapp/core";
+import { URL_ROPSTEN } from "./contractConfig";
 
 const config: Config = {
   readOnlyChainId: ChainId.Ropsten,
   readOnlyUrls: {
-    [ChainId.Ropsten]: `https://ropsten.infura.io/v3/${process.env.REACT_APP_ROPSTEN}`,
+    [ChainId.Ropsten]: `https://ropsten.infura.io/v3/${URL_ROPSTEN}`,
     [ChainId.Hardhat]: "http://localhost:8545",
   },
   multicallAddresses: {

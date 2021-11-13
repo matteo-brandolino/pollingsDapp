@@ -6,7 +6,7 @@ import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 
 contract Polling is Ownable {
     uint256 public pollsCounter = 0;
-    uint256 private divider = 1000;
+    uint256 private divider = 100;
 
     modifier costs(uint256 cost) {
         require(msg.value >= cost, "Not enough funds");
@@ -89,7 +89,7 @@ contract Polling is Ownable {
     function createPoll(string memory _title, string memory _body)
         public
         payable
-        costs(1 ether)
+        costs(0.1 ether)
     {
         // you need to pay to create a poll
         fundContract();

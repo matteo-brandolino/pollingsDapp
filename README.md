@@ -38,3 +38,4 @@ npm start
 ## To Do
 
 - responsive/ UI changes
+- alert system

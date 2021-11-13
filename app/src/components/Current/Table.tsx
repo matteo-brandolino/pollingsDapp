@@ -7,7 +7,8 @@ import {
 import { useEffect, useState } from "react";
 import { ParamsType } from "../../@types/types";
 import { useGlobalContext, Menu } from "../../context/GlobalContext";
-import { contractAddress, contractInterface } from "../../customHooks";
+import { contractAddress } from "../../contractConfig";
+import { contractInterface } from "../../customHooks";
 import VoteDialog from "../VoteDialog";
 
 export default function Table() {

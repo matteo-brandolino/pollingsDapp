@@ -8,7 +8,7 @@ import { CircularProgress } from "@material-ui/core";
 export default function PollForm() {
   const [title, setTitle] = useState<string>("");
   const [body, setBody] = useState<string>("");
-  const [ethAmount, setEthAmount] = useState<string | undefined>("1");
+  const [ethAmount, setEthAmount] = useState<string | undefined>("0.1");
   const { menu, isLoading } = useGlobalContext();
   const { send: addNew } = useContractMethod("createPoll", "New Poll");
 
@@ -61,7 +61,7 @@ export default function PollForm() {
                 <NumericInput
                   className="numeric-input"
                   precision={2}
-                  min={1}
+                  min={0.1}
                   value={ethAmount}
                   step={0.1}
                   strict={true}
