@@ -1,5 +1,9 @@
 # PollingDapp : vote and get paid
 
+## How it works
+
+<img src="./pollingsDapp">
+
 ## Installation
 
 ### Deploy and run node on localhost:
